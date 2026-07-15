@@ -1,5 +1,9 @@
 package lab2;
 
+/*
+You are supposed to take user input from user and create an array
+4. sort an array in descending order
+*/
 import java.util.Scanner;
 
 public class SortArray {
