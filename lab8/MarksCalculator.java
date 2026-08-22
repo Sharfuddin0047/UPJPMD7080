@@ -11,11 +11,12 @@ public class MarksCalculator implements Runnable {
         this.marks = marks;
     }
 
-    public void printSum(int start){
-        for(int i= 0; i<marks[0].length; i++){
+    public void printSum(int start) {
+        for (int i = 0; i < marks[0].length; i++) {
             sum += marks[start][i];
         }
-        System.out.println("Student "+(start+1) + " sum printed by: "+Thread.currentThread().getName() +" -> " +sum+" | average = "+ (float) sum / marks[start].length);
+        System.out.println("Student " + (start + 1) + " sum printed by: " + Thread.currentThread().getName() + " -> "
+                + sum + " | average = " + (float) sum / marks[start].length);
     }
 
     @Override
@@ -28,7 +29,7 @@ public class MarksCalculator implements Runnable {
     }
 
     public static void main(String[] args) {
-        int[][] marks = {{85, 90, 78, 88},{70, 65, 80, 75},{95, 92, 96, 94},{60, 72, 68, 70}};
+        int[][] marks = { { 85, 90, 78, 88 }, { 70, 65, 80, 75 }, { 95, 92, 96, 94 }, { 60, 72, 68, 70 } };
         MarksCalculator m1 = new MarksCalculator(0, marks);
         MarksCalculator m2 = new MarksCalculator(1, marks);
         MarksCalculator m3 = new MarksCalculator(2, marks);
@@ -53,7 +54,11 @@ public class MarksCalculator implements Runnable {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("Total Sum: " + (m1.sum + m2.sum + m3.sum +m4.sum));
+        int classTotal = m1.sum + m2.sum + m3.sum + m4.sum;
+        float classAverage = (float) classTotal / (marks.length * marks[0].length);
+
+        System.out.println("Class Total: " + classTotal);
+        System.out.println("Class Average: " + classAverage);
 
     }
 }
